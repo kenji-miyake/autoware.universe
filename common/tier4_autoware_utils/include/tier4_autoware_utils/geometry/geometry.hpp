@@ -18,6 +18,7 @@
 #include <exception>
 #include <string>
 #include <vector>
+#include <iostream>
 
 #define EIGEN_MPL2_ONLY
 #include "tier4_autoware_utils/geometry/boost_geometry.hpp"
@@ -34,11 +35,19 @@
 
 #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
 
+typedef double A;
+
 namespace tier4_autoware_utils
 {
+typedef double B;
 template <class T>
 geometry_msgs::msg::Point getPoint(const T & p)
 {
+  typedef double C;
+  A a = 1.0;
+  B b = 2.0;
+  C c = a + b;
+  std::cout << c << std::endl;
   return geometry_msgs::build<geometry_msgs::msg::Point>().x(p.x).y(p.y).z(p.z);
 }
 
@@ -271,12 +280,12 @@ inline geometry_msgs::msg::Transform pose2transform(const geometry_msgs::msg::Po
 }
 
 inline geometry_msgs::msg::TransformStamped pose2transform(
-  const geometry_msgs::msg::PoseStamped & pose, const std::string child_frame_id)
+  const geometry_msgs::msg::PoseStamped & pose, const std::string child_frame_id_)
 {
   geometry_msgs::msg::TransformStamped transform;
   transform.header = pose.header;
   transform.transform = pose2transform(pose.pose);
-  transform.child_frame_id = child_frame_id;
+  transform.child_frame_id = child_frame_id_;
   return transform;
 }
 
