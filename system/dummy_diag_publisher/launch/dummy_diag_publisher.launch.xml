@@ -22,46 +22,18 @@
     </node>
   </group>
 
-  <!-- velodyne -->
-  <include file="$(find-pkg-share dummy_diag_publisher)/launch/dummy_diag_publisher_node.launch.xml">
-    <arg name="diag_name" value="velodyne_connection"/>
-  </include>
-  <include file="$(find-pkg-share dummy_diag_publisher)/launch/dummy_diag_publisher_node.launch.xml">
-    <arg name="diag_name" value="velodyne_temperature"/>
-  </include>
-
-  <!-- livox -->
-  <include file="$(find-pkg-share dummy_diag_publisher)/launch/dummy_diag_publisher_node.launch.xml">
-    <arg name="diag_name" value="livox_ptp_signal"/>
-  </include>
-
-  <!-- camera -->
-  <include file="$(find-pkg-share dummy_diag_publisher)/launch/dummy_diag_publisher_node.launch.xml">
-    <arg name="diag_name" value="camera_connection"/>
+  <include file="$(find-pkg-share dummy_diag_publisher)/launch/launch_multiple.launch.py">
+    <arg name="diag_names" value="[
+      velodyne_connection,
+      velodyne_temperature,
+      livox_ptp_signal,
+      camera_connection,
+      lane_departure,
+      obstacle_crash,
+      vehicle_errors,
+      can_bus_connection,
+      speaker,
+    ]"/>
   </include>
 
-  <!-- lane departure -->
-  <include file="$(find-pkg-share dummy_diag_publisher)/launch/dummy_diag_publisher_node.launch.xml">
-    <arg name="diag_name" value="lane_departure"/>
-  </include>
-
-  <!-- obstacle crash -->
-  <include file="$(find-pkg-share dummy_diag_publisher)/launch/dummy_diag_publisher_node.launch.xml">
-    <arg name="diag_name" value="obstacle_crash"/>
-  </include>
-
-  <!-- vehicle -->
-  <include file="$(find-pkg-share dummy_diag_publisher)/launch/dummy_diag_publisher_node.launch.xml">
-    <arg name="diag_name" value="vehicle_errors"/>
-  </include>
-
-  <!-- CAN -->
-  <include file="$(find-pkg-share dummy_diag_publisher)/launch/dummy_diag_publisher_node.launch.xml">
-    <arg name="diag_name" value="can_bus_connection"/>
-  </include>
-
-  <!-- speaker (in order to check if correctly ignored) -->
-  <include file="$(find-pkg-share dummy_diag_publisher)/launch/dummy_diag_publisher_node.launch.xml">
-    <arg name="diag_name" value="speaker"/>
-  </include>
 </launch>
