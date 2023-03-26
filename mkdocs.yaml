@@ -1,6 +1,6 @@
 site_name: Autoware Universe Documentation
-site_url: https://autowarefoundation.github.io/autoware.universe
-repo_url: https://github.com/autowarefoundation/autoware.universe
+site_url: https://kenji-miyake.github.io/autoware.universe
+repo_url: https://github.com/kenji-miyake/autoware.universe
 edit_uri: edit/main/
 docs_dir: .
 copyright: Copyright &copy; 2022 The Autoware Foundation
