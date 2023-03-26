@@ -21,7 +21,7 @@ on:
 
 jobs:
   prevent-no-label-execution:
-    uses: autowarefoundation/autoware-github-actions/.github/workflows/prevent-no-label-execution.yaml@v1
+    uses: autowarefoundation/autoware-github-actions/.github/workflows/prevent-no-label-execution.yaml@replace-set-output
     with:
       label: deploy-docs
 
